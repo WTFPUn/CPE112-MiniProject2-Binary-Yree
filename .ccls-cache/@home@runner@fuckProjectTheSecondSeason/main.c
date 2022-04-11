@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+#include "Tree.h"
 
-#define MAXCHAR 1000
+#define n 51
+#define defaultFile "test.csv"
 
 int main(int argc, char **argv) {
   FILE *fp;
-   int c;
-
-   fp = fopen(argv[1],"w+");
-   while(1) {
-      c = fgetc(fp);
-      if( feof(fp) ) {
-         break;
-      }
-      printf("%c", c);
-   }
-   fclose(fp);
-   return(0);
+  char temp[30];
+  int j = 0, currentnode = 0;
+  TREENODE_T* root;
+  TREENODE_T* N[n];
+  
+  fp = fopen("test.csv","r+");
+  // printf("%d", feof(fp));
+  while(fgets(temp, 60, fp) != NULL) {
+    printf("%s", temp);
+  }
+  fclose(fp);
+  return(0);
 }
