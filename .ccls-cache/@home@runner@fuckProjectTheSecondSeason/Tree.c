@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,6 +10,10 @@ TREENODE_T* newNodeCreate() {
     if (tree == NULL) {
         return NULL;
     }
+    tree->name = "";
+    tree->province = "";
+    tree->subProv = "";
+    tree->tel = "";
     tree->left = NULL;
     tree->right = NULL;
     // printf("%d\n", tree->data);

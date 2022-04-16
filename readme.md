@@ -58,3 +58,6 @@ yoyo**Hello**yoyo
 
 
 [strcmp](https://www.programiz.com/c-programming/library-function/string.h/strcmp)
+
+- command argument
+  ./main file1 file2 ... filen

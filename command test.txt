@@ -1,0 +1,1 @@
+printf("%s\n%s\n%s\n%s\n", N[currentnode]->name, N[currentnode]->province, N[currentnode]->subProv, N[currentnode]->tel);

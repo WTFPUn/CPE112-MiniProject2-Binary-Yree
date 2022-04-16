@@ -4,7 +4,7 @@
 typedef struct _treenode
 {
   int balance, height;
-  char* name, *province, *subProv, *tel;
+  char *name, *province, *subProv, *tel;
   struct _treenode* left;
   struct _treenode* right;
 } TREENODE_T;
