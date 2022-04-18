@@ -1,4 +1,4 @@
-# Miniproject Task2: KUY 😂
+# 📍Mini-Project Task2: Phone Book
 ``` c
 printf("HEllo world!");
 ```

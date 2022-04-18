@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Tree.h"
+#include "queue.h"
 
 
 TREENODE_T* newNodeCreate() {
@@ -25,19 +26,17 @@ void InsertNodeToBinaryTree(TREENODE_T* root, TREENODE_T* newNode, int sortType)
   TREENODE_T *p, *previous;
 
   char *sortCat = sortType == 0 ?  newNode->name : (sortType == 1 ? newNode->province : sortType == 2 ? newNode->subProv : sortType == 3 ? newNode->tel : NULL);
-  if(root == NULL)
-  {
+  if(root == NULL) {
     root = newNode;
     // printf("root1 = %d\n",root->data);
   }
-  else
-  {  
+  else {  
     previous = root;
     char *prevCat = sortType == 0 ?  previous->name : (sortType == 1 ? previous->province : sortType == 2 ? previous->subProv : sortType == 3 ? previous->tel : NULL);
     int end = 0;
     do{
       end = 0; 
-      if(strcmp(sortCat, prevCat) < 0) { 
+      if(strcmp(sortCat, prevCat) <= 0) { 
         if(previous->left == NULL){
           previous->left = newNode;
           // printf("newnode.left = %d\n",newNode->data);
@@ -64,29 +63,45 @@ void InsertNodeToBinaryTree(TREENODE_T* root, TREENODE_T* newNode, int sortType)
   }    
 }
 
+void getData(TREENODE_T* node) {
+  printf("%s, %s, %s, %s\n", node->name, node->province, node->subProv, node->tel);
+}
 
 
-
-void postOrder(TREENODE_T* node)
-{
-          // 40
-       // 32
-    //28    35
+void postOrder(TREENODE_T* node, int id) {
+  char* out = id == 0 ?  node->name : (id == 1 ? node->province : id == 2 ? node->subProv : id == 3 ?node->tel : NULL);
   if(node->left != NULL)
-    postOrder(node->left);
+    postOrder(node->left, id);
   if(node->right != NULL)
-    postOrder(node->right);
+    postOrder(node->right, id);
   fillHeight(node);
   fillBalanceFactor(node);
-  // printf("Access data: %d Height: %d Balance Factor: %d\n", node->data, node->height, node->balance );
+  printf("Access data: %s \n", out);
+}
+
+void PreOrder (TREENODE_T* node, int id)
+{
+  char* out = id == 0 ?  node->name : (id == 1 ? node->province : id == 2 ? node->subProv : id == 3 ?node->tel : NULL);
+  printf("Access %s\n", out);
+  if (node->left != NULL)
+  PreOrder(node->left, id);
+  if (node->right != NULL)
+  PreOrder(node->right, id);
+
+}
+
+void InOrder (TREENODE_T* node, int id) {
+  char* out = id == 0 ?  node->name : (id == 1 ? node->province : id == 2 ? node->subProv : id == 3 ?node->tel : NULL);
+  if (node->left != NULL)
+  InOrder(node->left, id);
+  printf("Access %s\n", out);
+  if (node->right != NULL)
+  InOrder(node->right, id);
+
 }
 
 void fillHeight(TREENODE_T* node)
 {
-
-          // 40
-       // 32
-    //28    35
   int height = 0;
   if(node->left != NULL)
     fillHeight(node->left);
@@ -106,12 +121,6 @@ void fillHeight(TREENODE_T* node)
   node->height = height;
 }
 
-void getDataByCol(TREENODE_T* node, char* out, char col[]) {
-}
-
-void setDataByCol(TREENODE_T* node, char* out, char col[]) {
-  
-}
 void fillBalanceFactor(TREENODE_T* node) {
 
   int leftHeight = 0, rightHeight = 0;
@@ -134,6 +143,29 @@ void fillBalanceFactor(TREENODE_T* node) {
   node->balance = leftHeight - rightHeight;
 }
 
+int breadthSearch (TREENODE_T* node, int sortType) {
+  int count = 0;
+  
+  if(node == NULL)
+    return -1;
+  
+  QUEUE_T* queue =  queueCreate(10); 
+  
+  queueEnqueue(queue, node);
+  while(queue->count != 0) 
+  {
+    if(queue->data[queue->headIndex]->left != NULL)
+      queueEnqueue(queue, queue->data[queue->headIndex]->left);
+    if(queue->data[queue->headIndex]->right != NULL)
+      queueEnqueue(queue, queue->data[queue->headIndex]->right);
+    char* out = sortType == 0 ?  queue->data[queue->headIndex]->name : (sortType == 1 ? queue->data[queue->headIndex]->province : sortType == 2 ? queue->data[queue->headIndex]->subProv : sortType == 3 ? queue->data[queue->headIndex]->tel : NULL);
+    printf("Access %s\n", out);
+    queueDequeue(queue);
+  }
 
+   queueDestroy(queue);
+
+  return 1;
+}
 
 
