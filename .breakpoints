@@ -1,3 +1,24 @@
 {
-  "files": {}
+  "files": {
+    "main.c": [
+      {
+        "id": "843700ce-d28e-4042-9aea-f9c572e04a17",
+        "line": 148,
+        "version": 2828,
+        "index": 5129
+      },
+      {
+        "id": "0a930105-fe37-412c-8de5-a48ea18367f9",
+        "line": 149,
+        "version": 2828,
+        "index": 5209
+      },
+      {
+        "id": "5385a144-92ad-42f6-bbea-d754275674ef",
+        "line": 151,
+        "version": 2828,
+        "index": 5248
+      }
+    ]
+  }
 }

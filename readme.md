@@ -1,7 +1,37 @@
-# 📍Mini-Project Task2: Phone Book
+# Mini-Project : Phone Book
+
+<h>TEAM MEMBERS</h>
 ``` c
-printf("HEllo world!");
+️🙆🏻‍♂️'Punnawat Namwongsa' in charge of ....CODING....
 ```
+``` c
+🙆🏻'Patcharaphon Santhitikul' in charge of ....CODING....
+```
+``` c
+🙆🏻‍♀️'Nichapat Peasri' in charge of ....REPORT....
+```
+``` c
+🙆🏻‍♂️'Keetawan Limaroon' in charge of ....REPORT....
+```
+
+
+## CONTENTS
+- Overview
+- Procedure
+
+  -
+  
+### Overview
+
+> <h3>what did we do</h3>
+> <li>we do about ...</li>
+> <h3>what is this programme</h3>
+> <li>This program ...</li>
+> <h3>explain about the programme</h3>
+> <li>Program</li>
+
+
+
 
 ## Initial variable
 - Yoman
